@@ -25,11 +25,11 @@ The Spec_helper file contains all the workings of the project. There are 3 metho
 
 #### URL
 
-url is a simple method that sets the default url to lacedeamon that can have a path attached to the end. For example
+url is a simple method that sets the default url to lacedeamon that can have a path attached to the end. For example:
 ```ruby
 HTTParty.get url("/todos")
 ``` 
-Would equate to
+Would equate to:
 ```ruby
 http://lacedeamon.spartaglobal.com/todos
 ```
