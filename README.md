@@ -47,6 +47,6 @@ end
 
 Create_todos creates an array which holds all of the todos from a specified hash and posts them to the todos list. 
 
-#### Project status
+## Project status
 
 This is a personal project so I can learn how to use RSpec with HTTParty but if you have any questions feel free to message me @ jane.kempton@gmail.com
