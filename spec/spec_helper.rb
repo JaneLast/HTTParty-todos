@@ -18,8 +18,18 @@ def delete_all
   end
 end  
 
-def create_todos(array)
+def create_todos array
+  ids = []
+  
   array.each do |item|
     HTTParty.post url("/todos"), query: item
   end
+  
+  all = HTTParty.get url("/todos/")
+  
+  all.each do |todo|
+    ids.push(todo["id"])
+  end
 end
+
+
