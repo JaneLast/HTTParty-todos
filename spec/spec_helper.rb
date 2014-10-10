@@ -19,17 +19,17 @@ def delete_all
 end  
 
 def create_todos array
-  ids = []
-  
   array.each do |item|
     HTTParty.post url("/todos"), query: item
   end
-  
-  all = HTTParty.get url("/todos/")
-  
-  all.each do |todo|
-    ids.push(todo["id"])
-  end
 end
 
-
+def get_first_id
+ ids = []
+  
+ ids = HTTParty.get url("/todos")
+  ids.each do |todo|
+    HTTParty.get url("/todos/" + todo[":id"].to_s)
+  end
+  return ids[0][":id"]
+end

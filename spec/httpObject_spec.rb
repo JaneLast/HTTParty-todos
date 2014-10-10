@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'date'
-
+require 'pry'
 
 describe "Existing Object Todos Tests" do  
   before :each do 
@@ -13,6 +13,7 @@ describe "Existing Object Todos Tests" do
          {title: "Todo five", due: Date.today.to_s},
           ]
    create_todos hash
+   
   end
   
   after :all do
@@ -22,7 +23,7 @@ describe "Existing Object Todos Tests" do
   # Test 1 - To GET a todo from the list
   it "Should GET the todos list" do
 
-    r = HTTParty.get url("/todos/"+@ids[0].to_s),
+    r = HTTParty.get url("/todos/#{@get_first_id}"),
                       query: {}
     expect(r.code).to eq(200)
   end
@@ -30,11 +31,9 @@ describe "Existing Object Todos Tests" do
    # Test 2 - To POST a todo from the list
   it "Should create an empty todo item" do
      
-   r = HTTParty.post url("/todos/"+@ids[0].to_s),
+   r = HTTParty.post url("/todos/#{@get_first_id}"),
                       query: {}
+                    
     expect(r.code).to eq(405)
   end
-  
-
-  
 end
