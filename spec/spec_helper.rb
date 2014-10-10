@@ -25,11 +25,9 @@ def create_todos array
 end
 
 def get_first_id
- ids = []
-  
- ids = HTTParty.get url("/todos")
-  ids.each do |todo|
-    HTTParty.get url("/todos/" + todo[":id"].to_s)
-  end
-  return ids[0][":id"]
+ @id = HTTParty.get url("/todos")
+ 
+ @id.each do |todo|
+   HTTParty.get url("/todos/" + todo["id"].to_s)
+ end
 end
