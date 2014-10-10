@@ -24,6 +24,7 @@ def create_todos array
   end
 end
 
+# get_first_id pulls the ids from the todos list and stores them into an array
 def get_first_id
  @id = HTTParty.get url("/todos")
  
